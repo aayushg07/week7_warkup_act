@@ -5,6 +5,8 @@ const { check, validationResult } = require("express-validator");
 
 const app = express();
 const port = process.env.PORT | 5001;
+app.set('views',path.join(__dirname,'/views'));
+app.use(express.static(__dirname+"/public"));
 
 // Set Templating Enginge
 const handlebars = require("express-handlebars");
@@ -24,8 +26,7 @@ app.engine(
   })
 );
 app.set("view engine", "hbs");
-app.set('views',__dirname,'/views');
-app.use(express.static(__dirname+"/public"));
+
 app.set("view engine", "hbs");
 
 const urlencodedParser = express.urlencoded({ extended: false });
