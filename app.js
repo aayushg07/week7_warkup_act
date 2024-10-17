@@ -24,7 +24,8 @@ app.engine(
   })
 );
 app.set("view engine", "hbs");
-  
+app.set('views',__dirname,'/views');
+app.use(express.static(__dirname+"/public"));
 app.set("view engine", "hbs");
 
 const urlencodedParser = express.urlencoded({ extended: false });
